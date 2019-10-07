@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .imagen{
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div>
+        <div>
+            <h1> Martillo </h1>
+            <p id="martillo"></p>
+            <button onclick="masMartillo()">+</button>
+            <button onclick="menosMartillo()">-</button>
+        </div>
+
+        <div>
+            <h1> Brocha </h1>
+            <p id="brocha"></p>
+            <button onclick="masBrocha()">+</button>
+            <button onclick="menosBrocha()">-</button>
+        </div>
+        <div>
+            <h1> Llave </h1>
+            <p id="llave"></p>
+            <button onclick="masLlave()">+</button>
+            <button onclick="menosLlave()">-</button>
+        </div>
+        <div>
+            <h1> Tronco </h1>
+            <p id="tronco"></p>
+            <button onclick="masTronco()">+</button>
+            <button onclick="menosTronco()">-</button>
+        </div>
+    </div>
+
+    <div>
+        <p id="cestaMartillo"></p>
+        <p id="imagenesMartillo"></p>
+        <p id="cestaBrocha"></p>
+        <p id="cestaLlave"></p>
+        <p id="cestaTronco"></p>
+    </div>
+
+
+    <script>
+
+        let precioMartillo = 3.5;
+        let sumarMartillo = 0;
+        let contadorMartillo = 0;
+
+        let precioBrocha = 5;
+        let sumarBrocha = 0;
+        let contadorBrocha = 0;
+
+        let precioLlave = 7.25;
+        let sumarLlave = 0;
+        let contadorLlave = 0;
+
+        let precioTronco = 12;
+        let sumarTronco = 0;
+        let contadorTronco = 0;
+
+
+
+        let martillo = document.getElementById('martillo');
+        martillo.innerHTML = `Precio por unidad: ${precioMartillo}`;
+
+        let brocha = document.getElementById('brocha');
+        brocha.innerHTML = `Precio por unidad: ${precioBrocha}`;
+
+        let llave = document.getElementById('llave');
+        llave.innerHTML = `Precio por unidad: ${precioLlave}`;
+
+        let tronco = document.getElementById('tronco');
+        tronco.innerHTML = `Precio por unidad: ${precioTronco}`;
+
+
+        let cestaMartillo = document.getElementById('cestaMartillo');
+        let cestaBrocha = document.getElementById('cestaBrocha');
+        let cestaLlave = document.getElementById('cestaLlave');
+        let cestaTronco = document.getElementById('cestaTronco');
+        let imagenesMartillo = document.getElementById('imagenesMartillo');
+
+
+
+
+
+        function masMartillo() {
+            sumarMartillo = precioMartillo + sumarMartillo;
+            contadorMartillo = contadorMartillo + 1;
+            cestaMartillo.innerHTML = `Precio total de martillos: ${sumarMartillo}`;
+            imagenMartillo();
+            return;
+        }
+
+        function menosMartillo() {
+            if (sumarMartillo > 0) {
+                sumarMartillo = sumarMartillo - precioMartillo;
+                contadorMartillo = contadorMartillo - 1;
+            }
+            cestaMartillo.innerHTML = `Precio total de martillos: ${sumarMartillo}`;
+            imagenMartillo();
+            return;
+        }
+
+        function imagenMartillo() {
+            for (contadorMartillo; contadorMartillo > 0; --contadorMartillo) {
+                imagenesMartillo.innerHTML = `<img class = "imagen" src="martillo.svg" alt="Martillo" />`;
+            }
+            return;
+        }
+
+        function masBrocha() {
+            sumarBrocha = precioBrocha + sumarBrocha;
+            cestaBrocha.innerHTML = `Precio total de brochas: ${sumarBrocha}`;
+            return;
+        }
+
+        function menosBrocha() {
+            if (sumarBrocha > 0) {
+                sumarBrocha = sumarBrocha - precioBrocha;
+            }
+            cestaBrocha.innerHTML = `Precio total de brochas: ${sumarBrocha}`;
+            return;
+        }
+
+        function masLlave() {
+            sumarLlave = precioLlave + sumarLlave;
+            cestaLlave.innerHTML = `Precio total de llaves: ${sumarLlave}`;
+            return;
+        }
+
+        function menosLlave() {
+            if (sumarLlave > 0) {
+                sumarLlave = sumarLlave - precioLlave;
+            }
+            cestaLlave.innerHTML = `Precio total de llaves: ${sumarLlave}`;
+            return;
+        }
+
+        function masTronco() {
+            sumarTronco = precioTronco + sumarTronco;
+            cestaTronco.innerHTML = `Precio total de troncos: ${sumarTronco}`;
+            return;
+        }
+
+        function menosTronco() {
+            if (sumarTronco > 0) {
+                sumarTronco = sumarTronco - precioTronco;
+            }
+            cestaTronco.innerHTML = `Precio total de troncos: ${sumarTronco}`;
+            return;
+        }
+
+
+    </script>
+</body>
+
+</html>
